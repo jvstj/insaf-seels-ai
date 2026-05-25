@@ -1,0 +1,6 @@
+{
+  "name": "Insaf Sales AI",
+  "description": "A high-performance command center for messaging sales experts. Store FAQs, canned templates, and premium customer testimonials. Uses Gemini AI to answer queries and draft custom sales variations in Bengali, real-time synced using Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

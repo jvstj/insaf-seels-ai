@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "Faq": {
+      "title": "FAQ",
+      "description": "Frequently Asked Questions for customer queries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "question": { "type": "string", "description": "The customer's question" },
+        "answer": { "type": "string", "description": "The predefined response" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "authorId": { "type": "string" },
+        "authorEmail": { "type": "string" }
+      },
+      "required": ["question", "answer", "createdAt", "updatedAt", "authorId", "authorEmail"]
+    },
+    "CannedReply": {
+      "title": "Canned Reply",
+      "description": "Common customer replies or templates for quick copy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "description": "Title of the reply template" },
+        "content": { "type": "string", "description": "The exact canned response text" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "authorId": { "type": "string" },
+        "authorEmail": { "type": "string" }
+      },
+      "required": ["title", "content", "createdAt", "updatedAt", "authorId", "authorEmail"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Good customer comments and reviews across platforms",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "platform": { "type": "string", "enum": ["Facebook", "WhatsApp", "Other"] },
+        "customerName": { "type": "string", "description": "Name or handle of the customer" },
+        "comment": { "type": "string", "description": "Review comment left by customer" },
+        "rating": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "authorId": { "type": "string" },
+        "authorEmail": { "type": "string" }
+      },
+      "required": ["platform", "customerName", "comment", "rating", "createdAt", "updatedAt", "authorId", "authorEmail"]
+    }
+  },
+  "firestore": {
+    "faqs/{faqId}": {
+      "schema": "Faq",
+      "description": "Collection of frequently asked questions"
+    },
+    "canned_replies/{replyId}": {
+      "schema": "CannedReply",
+      "description": "Collection of canned replies"
+    },
+    "reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Collection of customer reviews and positive comments"
+    }
+  }
+}
